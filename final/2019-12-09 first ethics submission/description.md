@@ -1,0 +1,68 @@
+A study where you describe shapes
+=================================
+
+Aim
+---
+
+Our research hopes to find ways to make experiments more enjoyable for participants.
+
+This study investigates aspects of how the design of a task influences the data that it collects from participants.
+
+Consent
+-------
+
+By starting this study, you consent to participating in this study. Details of this study are supplied below.
+
+Task
+----
+
+You will carry out a short task that will require concentration. This task involves describing shapes. Afterwards you will answer some questions about your experience.
+
+You will be asked for your age, gender, and gaming experience.
+
+Payment
+-------
+
+You must complete the task and the questions to avoid your submission being rejected.
+
+You will be paid within 2 working days.
+
+
+Your Data
+-------
+
+You can withdraw your data until payment has been made.
+
+We record the answers you give to questions and log your activity in the main research task.
+
+Your data will be processed for research purposes in the public interest under Article 6 (1) (e) of the GDPR: "Processing is necessary for the performance of a task carried out in the public interest". Your data will be used for research publications and presentations.
+
+All data you provide will be stored and processed securely within the European Economic Area in full compliance with data protection legislation.
+
+Anonymised data collected by this experiment will be published via the Open Science Foundation.
+
+
+Contact Details
+---------------
+
+This research is being carried out by:
+
+David Gundry (deg500@york.ac.uk)
+Department of Computer Science
+University of York
+
+The project is under the supervision of:
+
+Dr Sebastian Deterding (sebastian.deterding@york.ac.uk)
+Department of Theatre, Film and Television
+University of York 
+
+This research has been subject to ethical review by:
+
+Physical Sciences Ethics Comittee
+University of York
+Chair: Dr Kanapathippillai (kanapathippillai.cumanan@york.ac.uk)
+
+The University of York’s acting Data Protection Officer can be contacted by email at:
+
+dataprotection@york.ac.uk

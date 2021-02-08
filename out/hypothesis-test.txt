@@ -1,0 +1,34 @@
+Analysing dataset data 
+
+Hypothesis 1: Enjoyment (DV1) will be greater in the game condition than the task condition.
+    A one-tailed two-sample t-test will be used to test whether the mean scores of DV1 is greater
+    in the game condition than the task condition. α = 0.05.
+Game mean 3.7026239067055395 sd 0.8293288485428479
+mean Tool 3.0851063829787235 sd 0.9246978808125036
+one tailed t test: p = 0.0004239144186800415 ; t = 3.4475846473714147 ; significant = True ; d = 0.7038880393185863 
+
+
+Hypothesis 2: Proportion of valid data (DV2(a)) will be lower in the game condition than the
+    task condition. A two-tailed two-sample t-test will be used to test whether the mean scores of
+    DV2(a) is less in the game condition than the task condition. α = 0.05
+Game mean 0.4602040816326531 sd 0.3514819210376638
+mean Tool 0.7138297872340426 sd 0.30904870301064596
+two tailed t test: p = 0.0003071085097980856 ; t = -3.748495459030268 ; significant = True ; d = -0.7653245355594557 
+
+
+Hypothesis 3: Proportion of valid data-providing mechanic actuations (DV2(b)) will be greater
+    in the game condition than what would be expected if ordering was random. A two-tailed one-sample
+    t-test will be used to compare DV2 for the game condition against the theoretical mean expected if
+    players provided word orderings that were completely random. This is given below. α = 0.05
+
+    Theoretical random proportion = (valid permutations / total permutations of 3 words) = 1/6 = 16.67%
+Game mean 0.48511667825024746 sd 0.36353645642489246
+two tailed, 1 sample t test: p = 1.5765036137627676e-07 ; t = 6.131847416369404 ; significant = True ; d = 0.8759782023384863 
+
+
+several-times-a-week    33
+every-day               32
+almost-never            14
+about-once-a-week       12
+about-once-a-month       5
+Name: gaming_frequency, dtype: int64

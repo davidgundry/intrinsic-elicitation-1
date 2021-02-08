@@ -1,0 +1,5 @@
+Analysing dataset age-gender 
+
+female    60
+male      36
+Name: gender, dtype: int64
