@@ -27,16 +27,21 @@ Pre-registration documents are found in `design/`. Dated uploads to OSF (which s
 
 Data collection began at 11:28 on 15 Jun 2020 and ended at 13:32.
 
-110 submissions recorded on Prolific. In addition:
+* 110 submissions recorded on Prolific. In addition:
 * 1 rejected due to wrong code
-* 11 returned their submissions without completing (inc. 1 manually completed)
+* 11 returned their submissions without completing (inc. 1 manually completed (i.e. paid) due to bug)
 * 3 timed out (inc. 1 manually completed)
 
 * 108 records downloaded from database
-* 2 pid excluded
+
+During (automated) processing:
+
+* 2 records were excluded for lacking Prolific IDs 
 * 6 excluded to bring down to first 50 in each condition (before analysis) to match with preregistration. As we were only supposed to collect 50 in each condition, and this was before exclusions took place, this happens before exclusions.
-* 2 excluded to language: other. 2 to negative ages (<18)
-* 96 records processed
+* 2 were excluded from data because of language set to "other". As this would make them more identifiable in the final data (and they cannot be used for the analysis), they are not included in the published data.
+* 2 excluded due to to ages below 18 (both were negative values)
+
+The published dataset contains 96 records.
 
 Raw data has been deleted in line with the anonymisation procedure specified in the ethics application.
 
