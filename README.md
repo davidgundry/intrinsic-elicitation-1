@@ -23,7 +23,26 @@ Pre-registration documents are found in `design/`. Dated uploads to OSF (which s
 
     R CMD BATCH --quiet r/power-analysis.r out/power-analysis.Rout
 
+## Data Collection
+
+Data collection began at 11:28 on 15 Jun 2020 and ended at 13:32.
+
+110 submissions recorded on Prolific. In addition:
+* 1 rejected due to wrong code
+* 11 returned their submissions without completing (inc. 1 manually completed)
+* 3 timed out (inc. 1 manually completed)
+
+* 108 records downloaded from database
+* 2 pid excluded
+* 6 excluded to bring down to first 50 in each condition (before analysis) to match with preregistration. As we were only supposed to collect 50 in each condition, and this was before exclusions took place, this happens before exclusions.
+* 2 excluded to language: other. 2 to negative ages (<18)
+* 96 records processed
+
+Raw data has been deleted in line with the anonymisation procedure specified in the ethics application.
+
 ## Data Source
+
+Data downloaded from [Restdb.io](https://restdb.io) using the script [get-restdb-data](https://github.com/davidgundry/get-restdb-data).
 
 ### Pre-anonymised Data Format
 
