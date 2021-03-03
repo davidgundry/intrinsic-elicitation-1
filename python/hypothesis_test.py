@@ -16,6 +16,10 @@ import matplotlib.pyplot as plt
 from statistics import mean, stdev
 from math import sqrt
 
+import seaborn as sns
+sns.set(style="ticks", font_scale=1.5)
+import ptitprince as pt
+
 from load_process import load_data, process_data
 
 def hypothesis_test_1(cat1, cat2):
@@ -78,6 +82,24 @@ def enjoyment_box_plot(df):
     boxplot.set_ylabel("IMI Enjoyment subscale")
     plt.savefig('out/imi_enjoyment_per_condition+'+dataset+'.pdf', bbox_inches='tight')
 
+
+def enjoyment_raincloud(df):
+    dy="imi_enjoyment"; dx="version"; ort="v"; pal = sns.color_palette(n_colors=2)
+    f, ax = plt.subplots(figsize=(7, 5))
+    ax=pt.half_violinplot( x = dx, y = dy, data = df, palette = pal, bw = .2, cut = 0.,
+                        scale = "area", width = .6, inner = None, orient = ort, order=["Game","Tool"])
+    ax=sns.stripplot( x = dx, y = dy, data = df, palette = pal, edgecolor = "white",
+                    size = 3, jitter = 1, zorder = 0, orient = ort, order=["Game","Tool"])
+    ax=sns.boxplot( x = dx, y = dy, data = df, color = "black", width = .15, zorder = 10,\
+                showcaps = True, boxprops = {'facecolor':'none', "zorder":10},\
+                showfliers=True, whiskerprops = {'linewidth':2, "zorder":10},\
+                saturation = 1, orient = ort, order=["Game","Tool"])
+    plt.xticks(plt.xticks()[0], ["Game","Control"])
+    ax.set_xlabel("")
+    ax.set_ylabel("IMI Enjoyment")
+    plt.savefig('out/imi_enjoyment_per_condition_raincloud+'+dataset+'.pdf', bbox_inches='tight')
+
+
 def valid_proportion_all_data_boxplot(df):
     plt.clf()
     boxplot = df.boxplot(column='proportion_of_valid_data', by='version', grid=False)
@@ -86,6 +108,24 @@ def valid_proportion_all_data_boxplot(df):
     boxplot.set_xlabel("")
     boxplot.set_ylabel("Proportion of Valid Data")
     plt.savefig('out/prop_valid_data_per_condition+'+dataset+'.pdf', bbox_inches='tight')
+
+
+def valid_proportion_all_data_raincloud(df):
+    dy="proportion_of_valid_data"; dx="version"; ort="v"; pal = sns.color_palette(n_colors=2)
+    f, ax = plt.subplots(figsize=(7, 5))
+    ax=pt.half_violinplot( x = dx, y = dy, data = df, palette = pal, bw = .2, cut = 0.,
+                        scale = "area", width = .6, inner = None, orient = ort, order=["Game","Tool"])
+    ax=sns.stripplot( x = dx, y = dy, data = df, palette = pal, edgecolor = "white",
+                    size = 3, jitter = 1, zorder = 0, orient = ort, order=["Game","Tool"])
+    ax=sns.boxplot( x = dx, y = dy, data = df, color = "black", width = .15, zorder = 10,\
+                showcaps = True, boxprops = {'facecolor':'none', "zorder":10},\
+                showfliers=True, whiskerprops = {'linewidth':2, "zorder":10},\
+                saturation = 1, orient = ort, order=["Game","Tool"])
+    plt.xticks(plt.xticks()[0], ["Game","Control"])
+    ax.set_xlabel("")
+    ax.set_ylabel("Proportion of Valid Data")
+    plt.savefig('out/prop_valid_data_per_condition_raincloud+'+dataset+'.pdf', bbox_inches='tight')
+
 
 def valid_proportion_actuations_boxplot(df):
     plt.clf()
@@ -117,7 +157,9 @@ hypothesis_test_1(gameCondition, toolCondition)
 hypothesis_test_2(gameCondition, toolCondition)
 hypothesis_test_3(gameCondition, toolCondition)
 enjoyment_box_plot(df)
+enjoyment_raincloud(df)
 valid_proportion_all_data_boxplot(df)
+valid_proportion_all_data_raincloud(df)
 valid_proportion_actuations_boxplot(df)
 gaming_frequency_bar_plot(df)
 print(df['gaming_frequency'].value_counts())
