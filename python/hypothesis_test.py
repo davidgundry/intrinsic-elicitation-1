@@ -67,7 +67,7 @@ def hypothesis_test_3(cat1, cat2):
 
     Theoretical random proportion = (valid permutations / total permutations of 3 words) = 1/6 = 16.67%""")
     alpha = 0.05
-    c0 = cat1['proportion_of_valid_data_providing_mechanic_actuations']
+    c0 = cat1['proportion_of_valid_data_providing_mechanic_actuations_hasnoun']
     ttest = ttest_1samp(c0, 1/6)
     cohens_d = (mean(c0) - (1/6)) / stdev(c0)
     print("Game mean" ,mean(c0), "sd" ,stdev(c0))
@@ -129,11 +129,11 @@ def valid_proportion_all_data_raincloud(df):
 
 def valid_proportion_actuations_boxplot(df):
     plt.clf()
-    boxplot = df.boxplot(column='proportion_of_valid_data_providing_mechanic_actuations', by='version', grid=False)
+    boxplot = df.boxplot(column='proportion_of_valid_data_providing_mechanic_actuations_hasnoun', by='version', grid=False)
     plt.suptitle('')
     plt.title("")
     boxplot.set_xlabel("")
-    boxplot.set_ylabel("Proportion of valid data providing mechanic actuations")
+    boxplot.set_ylabel("Proportion of valid data providing mechanic actuations (has noun)")
     plt.savefig('out/prop_valid_data_providing_actuations_per_condition+'+dataset+'.pdf', bbox_inches='tight')
 
 def gaming_frequency_bar_plot(df):

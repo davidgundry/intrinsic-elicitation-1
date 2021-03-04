@@ -21,8 +21,9 @@ def process_data(rawData):
             
     duration, gaming_frequency = [], []
     imi1, imi2, imi3, imi4, imi5, imi6, imi7, imi_enjoyment = [], [], [], [], [], [], [], []
-    grammatical_moves, moves_with_noun, total_moves = [], [] ,[]
-    proportion_of_valid_data, proportion_of_valid_data_providing_mechanic_actuations = [], []
+    grammatical_moves, moves_with_noun, moves_correct_form, total_moves = [], [] ,[], []
+    proportion_of_valid_data, proportion_of_valid_data_providing_mechanic_actuations_hasnoun = [], []
+    proportion_of_valid_data_providing_mechanic_actuations_correctform =[]
     for i, d in enumerate(data):
         gaming_frequency.append(d["answers"][1])
 
@@ -40,14 +41,17 @@ def process_data(rawData):
         imi_enjoyment.append(imi_value)
 
         # Calculate proportions of valid moves:
-        count_gram = sum([is_grammatical(a) and has_noun(a) for a in d["moves"]])
+        count_gram = sum([is_grammatical(a) and correct_form(a) for a in d["moves"]])
         count_w_noun = sum([has_noun(a) for a in d["moves"]])
+        count_correct_form = sum([correct_form(a) for a in d["moves"]])
         count_all = len(d["moves"])
         total_moves.append(count_all)
         grammatical_moves.append(count_gram)
         moves_with_noun.append(count_w_noun)
+        moves_correct_form.append(count_correct_form)
         proportion_of_valid_data.append(count_gram/count_all)
-        proportion_of_valid_data_providing_mechanic_actuations.append(count_gram/count_w_noun)
+        proportion_of_valid_data_providing_mechanic_actuations_correctform.append(count_gram/count_correct_form)
+        proportion_of_valid_data_providing_mechanic_actuations_hasnoun.append(count_gram/count_w_noun)
     d = { 
             "version": version,
             "language": language,
@@ -56,9 +60,11 @@ def process_data(rawData):
             "imi_enjoyment": imi_enjoyment,
             "total_moves" : total_moves,
             "moves_with_noun": moves_with_noun,
+            "moves_correct_form": moves_correct_form,
             "grammatical_moves": grammatical_moves,
             "proportion_of_valid_data" : proportion_of_valid_data,
-            "proportion_of_valid_data_providing_mechanic_actuations": proportion_of_valid_data_providing_mechanic_actuations
+            "proportion_of_valid_data_providing_mechanic_actuations_hasnoun": proportion_of_valid_data_providing_mechanic_actuations_hasnoun,
+            "proportion_of_valid_data_providing_mechanic_actuations_correctform": proportion_of_valid_data_providing_mechanic_actuations_correctform
         }
     df = pd.DataFrame(data=d)
     return df
@@ -78,7 +84,25 @@ def is_grammatical(array):
             a.append(3)
         if word in nouns:
             a.append(4)
-    return (a[0] < a[1] < a[2])
+    return (a[0] < a[1] < a[2]) and has_noun(array)
+
+def correct_form(array):
+    a1, a2, a3, n = 0,0,0,0
+    adj1 = ["big", "small"]
+    adj2 = ["empty", "filled"]
+    adj3 = ["red", "blue", "green"]
+    nouns = ["square","circle","triangle"]
+    for word in array:
+        if word in adj1:
+            a1 += 1
+        elif word in adj2:
+            a2 += 1
+        elif word in adj3:
+            a3 += 1
+        elif word in nouns:
+            n += 1
+    return (a1 < 2) and (a2 < 2) and (a3 < 2) and (n == 1)
+
 
 def has_noun(array):
     nouns = ["square","circle","triangle"]

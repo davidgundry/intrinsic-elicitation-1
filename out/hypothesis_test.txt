@@ -11,9 +11,9 @@ one tailed t test: p = 0.0004239144186800415 ; t = 3.4475846473714147 ; signific
 Hypothesis 2: Proportion of valid data (DV2(a)) will be lower in the game condition than the
     task condition. A two-tailed two-sample t-test will be used to test whether the mean scores of
     DV2(a) is less in the game condition than the task condition. α = 0.05
-Game mean 0.4602040816326531 sd 0.3514819210376638
-mean Tool 0.7138297872340426 sd 0.30904870301064596
-two tailed t test: p = 0.0003071085097980856 ; t = -3.748495459030268 ; significant = True ; d = -0.7653245355594557 
+Game mean 0.4479591836734694 sd 0.35325262202280455
+mean Tool 0.6723404255319149 sd 0.30014643358054305
+two tailed t test: p = 0.0011752512224172769 ; t = -3.347147398395107 ; significant = True ; d = -0.6833819211264233 
 
 
 Hypothesis 3: Proportion of valid data-providing mechanic actuations (DV2(b)) will be greater
@@ -22,8 +22,8 @@ Hypothesis 3: Proportion of valid data-providing mechanic actuations (DV2(b)) wi
     players provided word orderings that were completely random. This is given below. α = 0.05
 
     Theoretical random proportion = (valid permutations / total permutations of 3 words) = 1/6 = 16.67%
-Game mean 0.48511667825024746 sd 0.36353645642489246
-two tailed, 1 sample t test: p = 1.5765036137627676e-07 ; t = 6.131847416369404 ; significant = True ; d = 0.8759782023384863 
+Game mean 0.47124806062775987 sd 0.3649358801752708
+two tailed, 1 sample t test: p = 4.361730761485389e-07 ; t = 5.842313331053295 ; significant = True ; d = 0.8346161901504706 
 
 
 several-times-a-week    33
