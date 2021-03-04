@@ -26,6 +26,16 @@ Game mean 0.47124806062775987 sd 0.3649358801752708
 two tailed, 1 sample t test: p = 4.361730761485389e-07 ; t = 5.842313331053295 ; significant = True ; d = 0.8346161901504706 
 
 
+Hypothesis 3 (altered): Proportion of valid data-providing mechanic actuations (measured using _correctform)
+    will be greater in the game condition than what would be expected if ordering was random. A two-tailed one-sample
+    t-test will be used to compare DV2 for the game condition against the theoretical mean expected if
+    players provided word orderings that were completely random. This is given below. α = 0.05
+
+    Theoretical random proportion = (valid permutations / total permutations of 3 words) = 1/6 = 16.67%
+Game mean 0.47536786644482354 sd 0.3676446199188114
+two tailed, 1 sample t test: p = 3.852528388488668e-07 ; t = 5.877709835450065 ; significant = True ; d = 0.8396728336357234 
+
+
 several-times-a-week    33
 every-day               32
 almost-never            14
