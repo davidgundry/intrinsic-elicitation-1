@@ -15,7 +15,7 @@ This is a repository of materials and data for the Enjoyment and Data Collection
 * `materials/` - contains materials that were used in the experiment
 * `img/` - screenshots of the game
 * `design/` - preregistration and ethics documents
-* `raw/` - raw data stored here before processing and anonymisation
+* `raw/` - raw data stored here before processing and anonymisation //TODO: download example data from play through video
 
 ## Pre-Registration
 
