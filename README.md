@@ -14,8 +14,7 @@ This is a repository of materials and data for the Enjoyment and Data Collection
 * `final/` - versions of documents that have been officially submitted somewhere
 * `materials/` - contains materials that were used in the experiment
 * `img/` - screenshots of the game
-* `design/` - preregistration and ethics documents
-* `raw/` - raw data stored here before processing and anonymisation //TODO: download example data from play through video
+* `raw/` - raw data stored here before processing and anonymisation
 
 ## Pre-Registration
 
@@ -165,10 +164,12 @@ A grammatical noun phrase must contain a noun and the following precedence must 
 
     Size << Filledness << Colour << Noun
 
+And they must satisfy the "correct form" rule below.
+
 Thus "big empty blue triangle" is judged grammatical, but if you rearrange that phrase in any way it is ungrammatical. The phrase "big blue empty triangle" would be judged ungramamtical but it might be an acceptable order for many people. As an idealised grammar, it will not necessarily correspond in all ways to actual usage.
 
 ### Correct form / mechanic actuations
 
-The game mechanic can never be succesfully actuated by certain types of input. For example, blocks can never be described by two adjectives of the same type (e.g. "red" and "blue"). The game also requires that exactly 1 noun be selected. If we wanted to, we could exclude all inputs that don't correspond to this automatically, potentially reducing the amount of noise we collect.
+The game mechanic can never be succesfully actuated by certain types of input. For example, blocks can never be described by two adjectives of the same type (e.g. "red" and "blue"). The game also requires that exactly 1 noun be selected.
 
 Originally in the preregistration we only said we would check if the input has a noun. These values are reported as `_hasnoun`.
