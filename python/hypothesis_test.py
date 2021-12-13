@@ -15,6 +15,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from statistics import mean, stdev
 from math import sqrt
+from scipy.stats import wilcoxon
 
 import seaborn as sns
 sns.set(style="ticks", font_scale=1.5)
@@ -22,13 +23,13 @@ import ptitprince as pt
 
 from load_process import load_data, process_data
 
-def hypothesis_test_1(cat1, cat2):
+def hypothesis_test_1(game, tool):
     print("""Hypothesis 1: Enjoyment (DV1) will be greater in the game condition than the task condition.
     A one-tailed two-sample t-test will be used to test whether the mean scores of DV1 is greater
     in the game condition than the task condition. α = 0.05.""")
     alpha = 0.05
-    c0 = cat1['imi_enjoyment']
-    c1 = cat2['imi_enjoyment']
+    c0 = game['imi_enjoyment']
+    c1 = tool['imi_enjoyment']
     ttest = ttest_ind(c0,c1)
     n0 = len(c0)
     n1 = len(c1)
@@ -40,13 +41,15 @@ def hypothesis_test_1(cat1, cat2):
     print("Game mean" ,mean(c0), "sd" ,stdev(c0))
     print("mean Tool" ,mean(c1), "sd", stdev(c1))
     print("one tailed t test: p =", p, "; t =",ttest.statistic, "; significant =",(p < alpha) and (ttest.statistic > 0), "; d =",cohens_d, "\n\n")
+    mwu = mannwhitneyu(c0, c1, alternative='greater')
+    print("Mann-Whitney U test: p =", mwu.pvalue, "; U =",mwu.statistic, "; significant =",(mwu.pvalue < alpha) and (ttest.statistic > 0), "; d =",cohens_d, "\n\n")
 
-def hypothesis_test_2(cat1, cat2):
+def hypothesis_test_2(game, tool):
     print("""Hypothesis 2: Proportion of valid data (DV2(a)) will be lower in the game condition than the
     task condition. A two-tailed two-sample t-test will be used to test whether the mean scores of
     DV2(a) is less in the game condition than the task condition. α = 0.05""")
-    c0 = cat1['proportion_of_valid_data']
-    c1 = cat2['proportion_of_valid_data']
+    c0 = game['proportion_of_valid_data']
+    c1 = tool['proportion_of_valid_data']
     alpha = 0.05
     ttest = ttest_ind(c0, c1)
     n0 = len(c0)
@@ -58,8 +61,10 @@ def hypothesis_test_2(cat1, cat2):
     print("Game mean" ,mean(c0), "sd" ,stdev(c0))
     print("mean Tool" ,mean(c1), "sd", stdev(c1))
     print("two tailed t test: p =", ttest.pvalue, "; t =",ttest.statistic, "; significant =",(ttest.pvalue < alpha), "; d =",cohens_d, "\n\n")
+    mwu = mannwhitneyu(c0, c1)
+    print("Mann-Whitney U test: p =", mwu.pvalue, "; U =",mwu.statistic, "; significant =",(mwu.pvalue < alpha), "; d =",cohens_d, "\n\n")
 
-def hypothesis_test_3(cat1):
+def hypothesis_test_3(game):
     print("""Hypothesis 3: Proportion of valid data-providing mechanic actuations (DV2(b)) will be greater
     in the game condition than what would be expected if ordering was random. A two-tailed one-sample
     t-test will be used to compare DV2 for the game condition against the theoretical mean expected if
@@ -67,14 +72,13 @@ def hypothesis_test_3(cat1):
 
     Theoretical random proportion = (valid permutations / total permutations of 3 words) = 1/6 = 16.67%""")
     alpha = 0.05
-    c0 = cat1['proportion_of_valid_data_providing_mechanic_actuations_hasnoun']
+    c0 = game['proportion_of_valid_data_providing_mechanic_actuations_hasnoun']
     ttest = ttest_1samp(c0, 1/6)
     cohens_d = (mean(c0) - (1/6)) / stdev(c0)
     print("Game mean" ,mean(c0), "sd" ,stdev(c0))
     print("two tailed, 1 sample t test: p =", ttest.pvalue, "; t =", ttest.statistic, "; significant =", (ttest.pvalue < alpha), "; d =",cohens_d, "\n\n")
 
-
-def hypothesis_test_3_correctform(cat1):
+def hypothesis_test_3_correctform(game):
     print("""Hypothesis 3 (altered): Proportion of valid data-providing mechanic actuations (measured using _correctform)
     will be greater in the game condition than what would be expected if ordering was random. A two-tailed one-sample
     t-test will be used to compare DV2 for the game condition against the theoretical mean expected if
@@ -82,12 +86,14 @@ def hypothesis_test_3_correctform(cat1):
 
     Theoretical random proportion = (valid permutations / total permutations of 3 words) = 1/6 = 16.67%""")
     alpha = 0.05
-    c0 = cat1['proportion_of_valid_data_providing_mechanic_actuations_correctform']
+    c0 = game['proportion_of_valid_data_providing_mechanic_actuations_correctform']
     ttest = ttest_1samp(c0, 1/6)
     cohens_d = (mean(c0) - (1/6)) / stdev(c0)
     print("Game mean" ,mean(c0), "sd" ,stdev(c0))
     print("two tailed, 1 sample t test: p =", ttest.pvalue, "; t =", ttest.statistic, "; significant =", (ttest.pvalue < alpha), "; d =",cohens_d, "\n\n")
-
+    diffs = c0 - (1/6)
+    w, p = wilcoxon(diffs)
+    print("wilcoxon w=", w, "p=", p, "\n\n")
 
 def enjoyment_box_plot(df):
     plt.clf()

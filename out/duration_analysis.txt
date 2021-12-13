@@ -4,6 +4,7 @@ all data: mean 310.26610416666665 sd 166.1517674650422
 game condition: mean 348.72132653061226 sd 96.71709332170549
 tool condition: mean 270.1744893617021 sd 209.84472783940618
 Ttest_indResult(statistic=2.371107493957115, pvalue=0.01977543597508283)
+Mann-Whitney U test: MannwhitneyuResult(statistic=469.0, pvalue=2.888475378844021e-07)
 cohens d = 0.4841053594456612
 
 

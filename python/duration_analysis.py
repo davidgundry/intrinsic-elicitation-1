@@ -13,6 +13,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from statistics import mean, stdev
 from math import sqrt
+from scipy.stats import mannwhitneyu
 
 def duration_histogram(gameCondition, toolCondition):
     plt.clf()
@@ -60,6 +61,10 @@ print("all data: mean", mean(cAll), "sd", stdev(cAll))
 print("game condition: mean", mean(c0), "sd", stdev(c0))
 print("tool condition: mean", mean(c1), "sd", stdev(c1))
 print(ttest)
+
+mwu = mannwhitneyu(c0, c1)
+print("Mann-Whitney U test:", mwu)
+
 print("cohens d =", cohens_d)
 
 m0 = mean(c0)

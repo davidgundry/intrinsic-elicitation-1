@@ -31,7 +31,7 @@ Data collection began at 11:28 on 15 Jun 2020 and ended at 13:32.
 * 11 returned their submissions without completing (inc. 1 manually completed (i.e. paid) due to bug)
 * 3 timed out (inc. 1 manually completed)
 
-* 108 records downloaded from database
+* 108 records downloaded from database (meaning either data for 2 participants was lost or those participants were able to complete the study on Prolific without submitting data)
 
 During (automated) processing:
 
