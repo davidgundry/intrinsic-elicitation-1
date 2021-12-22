@@ -5,3 +5,5 @@ male      36
 Name: gender, dtype: int64
 Mean age 30.572916666666668
 Median age 26.5
+Min age 18
+Max age 130

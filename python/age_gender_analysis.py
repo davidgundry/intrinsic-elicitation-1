@@ -41,6 +41,8 @@ df = pd.read_csv("data/"+dataset+".csv", names=["age","gender"])
 print(df['gender'].value_counts())
 print("Mean age", df['age'].mean())
 print("Median age", df['age'].median())
+print("Min age", df['age'].min())
+print("Max age", df['age'].max())
 
 gender_bar_plot(df)
 age_histogram(df)
