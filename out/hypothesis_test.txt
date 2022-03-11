@@ -14,12 +14,12 @@ Mann-Whitney U test: p = 0.0006426567842820676 ; U = 1590.5 ; significant = True
 Hypothesis 2: Proportion of valid data (DV2(a)) will be lower in the game condition than the
     task condition. A two-tailed two-sample t-test will be used to test whether the mean scores of
     DV2(a) is less in the game condition than the task condition. α = 0.05
-Game mean 0.4479591836734694 sd 0.35325262202280455
+Game mean 0.4479591836734694 sd 0.3532526220228045
 mean Tool 0.6723404255319149 sd 0.30014643358054305
-two tailed t test: p = 0.0011752512224172769 ; t = -3.347147398395107 ; significant = True ; d = -0.6833819211264233 
+two tailed t test: p = 0.0011752512224172769 ; t = -3.347147398395107 ; significant = True ; d = -0.6833819211264235 
 
 
-Mann-Whitney U test: p = 0.0011021169596822852 ; U = 734.5 ; significant = True ; d = -0.6833819211264233 
+Mann-Whitney U test: p = 0.0022042339193645705 ; U = 734.5 ; significant = True ; d = -0.6833819211264235 
 
 
 Hypothesis 3: Proportion of valid data-providing mechanic actuations (DV2(b)) will be greater

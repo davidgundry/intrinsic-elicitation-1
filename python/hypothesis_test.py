@@ -61,7 +61,7 @@ def hypothesis_test_2(game, tool):
     print("Game mean" ,mean(c0), "sd" ,stdev(c0))
     print("mean Tool" ,mean(c1), "sd", stdev(c1))
     print("two tailed t test: p =", ttest.pvalue, "; t =",ttest.statistic, "; significant =",(ttest.pvalue < alpha), "; d =",cohens_d, "\n\n")
-    mwu = mannwhitneyu(c0, c1)
+    mwu = mannwhitneyu(c0, c1, alternative='two-sided')
     print("Mann-Whitney U test: p =", mwu.pvalue, "; U =",mwu.statistic, "; significant =",(mwu.pvalue < alpha), "; d =",cohens_d, "\n\n")
 
 def hypothesis_test_3(game):
