@@ -62,7 +62,7 @@ print("game condition: mean", mean(c0), "sd", stdev(c0))
 print("tool condition: mean", mean(c1), "sd", stdev(c1))
 print(ttest)
 
-mwu = mannwhitneyu(c0, c1)
+mwu = mannwhitneyu(c0, c1, alternative='two-sided')
 print("Mann-Whitney U test:", mwu)
 
 print("cohens d =", cohens_d)
